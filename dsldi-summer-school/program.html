@@ -17,6 +17,7 @@
     <script src="js/skel.min.js"></script>
     <script src="js/skel-layers.min.js"></script>
     <script src="js/init.js"></script>
+
     <noscript>
       <link rel="stylesheet" href="css/skel.css" />
       <link rel="stylesheet" href="css/style.css" />
@@ -59,11 +60,29 @@
    		<tr><td>8:45 - 9:15</td><td> Breakfast and Reception</td></tr>
    		<tr><td>9:15 - 10:45</td><td> Introduction to DSLs</td></tr>
    		<tr><td>10:45 - 11:15</td><td> Coffee Break</td></tr>
-   		<tr><td>11:15 - 12:45</td><td> Declare Your Language (Eelco Visser)</td></tr>
+   		<tr id="rowToClick"><td>11:15 - 12:45</td><td> Declare Your Language (Eelco Visser)</td></tr>
+		<tr><td></td><td>Language workbenches are tools aiming to reduce the gap between the design and implementation of (external domain-specific) programming languages. Given high-level descriptions of the syntax and semantics of a language, a workbench generates an implementation of an IDE and/or execution engine. There are many different approaches to realising these goals. In this session I will demonstrate and discuss the state of declarative language definition in the Spoofax Language Workbench.
+
+In the first part of the session I give a hands-on tutorial of the development of language front-ends with Spoofax. We will explore syntax definition in SDF3, name binding and scope rules in NaBL, and type constraints in TS. Participants are expected to bring a (decently equipped) laptop with Eclipse/Spoofax and the exercise projects pre-installed according to the instructions provided at http://declare-your-language.metaborg.org/. (Instructions under construction)
+
+In the second part I will present recent research in expanding declarative language definition. (1) In our ESOP15 paper we develop a theory of name resolution to provide a generalisation and post-hoc semantics of the concepts of the NaBL name binding language. I will present the scope graph model, its resolution calculus, and the application of scope graphs to model name binding patterns in existing languages. (2) Language workbenches typically employ code generation to give semantics to languages.  This often leads to questions about the exact source-level semantics of the language. We are working on DynSem, a DSL for the specification of dynamic semantics aimed at rapid prototyping, generation of interpreters, and (eventually) verification of soundness properties. DynSem is based on the work of implicitly modular operational semantics of Peter Mosses. I will discuss the current state of the design of the language.
+</td></tr>
    		<tr><td>12:45 - 13:45</td><td> Lunch</td></tr>
 		<tr><td>13:45 - 15:15</td><td> Declare Your Language (Eelco Visser) </td></tr>
 		<tr><td>15:15 - 15:45</td><td> Coffee Break</td></tr>
    		<tr><td>15:45 - 17:15</td><td> Quoted DSLs (Philip Wadler) </td></tr>
+   		<tr><td></td><td>         We describe a new approach to domain specific languages (DSLs),
+called Quoted DSLs (QDSLs), that resurrects two old ideas:
+quotation, from McCarthy's Lisp of 1960, and the subformula
+property, from Gentzen's natural deduction of 1935.  Quoted terms
+allow the DSL to share the syntax and type system of the host
+language.  Normalising quoted terms ensures the subformula property,
+which guarantees that one can use higher-order types in the source
+while guaranteeing first-order types in the target, and enables
+using types to guide fusion.  We test our ideas by re-implementing
+Feldspar, which was originally implemented as an Embedded DSL
+(EDSL), as a QDSL; and we compare the QDSL and EDSL variants. </td></tr>        
+
        	<tr><td>17:15 - 17:45</td><td> Coffee Break</td></tr>
        	<tr><td>17:45 - 18:45</td><td> Exercises / Posters</td></tr>
        	<tr><td>18:45 - 19:45</td><td> Dinner</td></tr>
@@ -75,6 +94,29 @@
    		<tr><td>11:15 - 12:45</td><td> DSL Embedding in Scala (Tiark Rompf)</td></tr>
    		<tr><td>12:45 - 13:45</td><td> Lunch</td></tr>
 		<tr><td>13:45 - 15:15</td><td> DSL Embedding in Racket (Matt Flatt)</td></tr>
+		<tr><td></td><td>        Racket is an extensible programming language that allows programmers
+to define syntactic forms, create embedded domain-specific languages
+(DSLs), and construct entirely new programming languages. This
+tutorial will provide a refresher on Lisp-style extensibility, cover
+Scheme-style pattern-matching and procedural macros, and delve into
+Racket-specific topics like redefining implicit macros, the
+syntax-parse library, macros that cooperate through compile-time
+information, non-parenthesized syntax, and integrating with the
+DrRacket programming environment.
+
+As a concrete example, we will develop an implementation of QL
+(http://www.languageworkbenches.net/wp-content/uploads/2013/11/Ql.pdf).
+Starting with a library that implements the GUI part, participants will
+write most of the interesting code to implement the DSL (macros,
+modules, etc.). We'll develop the language in stages, where each stage
+starts with a presentation on a language construct or strategy, then
+students apply the construct or strategy to create a next
+approximation of QL, and we sync as a group before moving on to the
+next stage.
+
+Preparation: install <a href="http://racket-lang.org/download/">Racket v6.2</a> and download or clone <a href="https://github.com/mflatt/macro-dsl-tutorial">https://github.com/mflatt/macro-dsl-tutorial</a>
+
+</td></tr>        
 		<tr><td>15:15 - 15:45</td><td> Coffee Break</td></tr>
    		<tr><td>15:45 - 17:15</td><td> DSL Embedding in Racket (Matt Flatt)</td></tr>
        	<tr><td>17:15 - 17:45</td><td> Coffee Break</td></tr>
@@ -84,10 +126,25 @@
 	    <tr><td>        <h2>Wednesday 15th</h2><td><td></td></tr>
 		<tr><td>8:45 - 9:15</td><td> Breakfast</td></tr>
    		<tr><td>9:15 - 10:45</td><td> DSL Embedding in Haskell (Ryan Newton)</td></tr>
+   		<tr><td></td><td> Preparation: install GHC 7.8.4 and cabal and run “cabal install accelerate”.  Alternatively, we will provide a Docker image for working through the exercises.
+</td></tr>        
    		<tr><td>10:45 - 11:15</td><td> Coffee Break</td></tr>
    		<tr><td>11:15 - 12:45</td><td> DSL Embedding in Haskell (Ryan Newton)</td></tr>
    		<tr><td>12:45 - 13:45</td><td> Lunch</td></tr>
 		<tr><td>13:45 - 15:15</td><td> Exploiting Domain-Specific Knowledge: Databases and Data Analytics (Christoph Koch)</td></tr>
+        		<tr><td></td><td>         DSLs have been a key aspect of database research and practice for more than
+45 years. SQL is likely to be the most successful and -- in its time -- dominant DSL that ever was or ever will be, with SQL databases being the heart and motor of the 1.5 trillion dollars per year IT industry.
+
+SQL and relational algebra are prime examples of non-Turing-complete DSLs.
+Database research has yielded a powerful body of knowledge that can guide us in the design and implementation of such DSLs. Domain-specific compilation of database DSLs has been with us since the early 70ies, but the most significant activity in this space is rather recent.
+
+This lecture will have two parts. In the first part, I give a practice-oriented
+survey of the main results from database theory that allow us to design powerful, well-rounded, tractable, and declarative embedded DSLs based on logic with guaranteed termination. I show how to obtain pairs of equivalent logical and functional or algebraic DSLs which at once admit declarative programming and effective and efficient execution. I show how to determine, for a new DSL, its place in the hierarchy of well-studied language families, immediately yielding insights on execution complexity and expressive power, and suggesting paths towards efficient implementation. I show how to avoid complexity pitfalls that we may fall into by wanting to create a well-rounded language around a set of required core language features. I will establish the relationships between a number of important example languages such as relational algebra, the simply typed lambda calculus, and linear algebra, and will discuss the practical implication of these insights.  This part of the tutorial will remain minimally technical and does not require an affinity with theory from the audience.
+
+In the second part of the lecture, I will survey domain-specific compilation for data-centric systems. Such systems must be aware of the memory hierarchy and leverage data locality ideas to achieve good performance. Database research has yielded a number of key techniques that can benefit DSL implementers, such as various physical data layouts, indexing, materialization, and pipelining. I will survey these and show how and where in a DSL compiler they can be made use of. Much of this will be concretely demonstrated within the DBLAB database construction framework currently under development at EPFL.
+</td></tr>
+
+
 		<tr><td>15:15 - 15:45</td><td> Coffee Break</td></tr>
    		<tr><td>15:45 - 17:15</td><td> Exploiting Domain-Specific Knowledge: Databases and Data Analytics (Christoph Koch)</td></tr>
        	<tr><td>17:15 - 17:45</td><td> Coffee Break</td></tr>
@@ -98,10 +155,17 @@
 	    <tr><td>        <h2>Thursday 16th</h2><td><td></td></tr>
 		<tr><td>8:45 - 9:15</td><td> Breakfast</td></tr>
    		<tr><td>9:15 - 10:45</td><td> Exploiting Domain-Specific Knowledge: Spiral (Markus Püschel & Georg Ofenbeck)</td></tr>
+		<tr><td></td><td>        We will give a lecture on Spiral (www.spiral.net), a program generation system for highest performance transforms and one of the first approaches that used DSLs for detailed performance optimization. In the first hour, we will give an overview of Spiral including the basic principles that underly its approach.The last two hours will be “hands-on”: we will walk the participants through implementing a small subset of Spiral using LMS inside Scala. (For LMS see the Tuesday lecture by Tiark Rompf.) The focus of the hands-on session will be on understanding the benefits of a rigorous meta-programming approach for building generators like Spiral.
+</td></tr>
+
    		<tr><td>10:45 - 11:15</td><td> Coffee Break</td></tr>
    		<tr><td>11:15 - 12:45</td><td> Exploiting Domain-Specific Knowledge: Spiral (Markus Püschel & Georg Ofenbeck)</td></tr>
    		<tr><td>12:45 - 13:45</td><td> Lunch</td></tr>
 		<tr><td>13:45 - 15:15</td><td> Heterogeneous Computing (Kunle Olukotun)</td></tr>
+		<tr><td></td><td>         Delite (<a href="http://stanford-ppl.github.io/Delite">http://stanford-ppl.github.io/Delite</a>) is a compiler framework for building embedded compiled DSLs for high performance execution on heterogeneous devices. Delite is built on top of LMS and adds parallel patterns and parallel data structures as first class citizens. DSL authors implement domain-specific operations using Delite parallel ops, and Delite then provides optimizations and code generation for multiple hardware targets. Currently supported parallel code generators include Scala, C++, and Cuda. The ultimate goal of Delite is to enable writing single-source DSL applications that can be transparently and efficiently targeted to existing and emerging heterogeneous hardware platforms.
+
+In the first half of the section we will give a lecture on Delite's design, explaining the current set of features and highlighting the optimizations required to translate DSL applications to heterogeneous hardware.  In the second half we will dive into the code and walk through building a simple linear algebra DSL on top of Delite and adding domain-specific optimizations. We will also look at some of the key pieces of Delite's internals and discuss how Delite can be further extended.</td></tr>        
+
 		<tr><td>15:15 - 15:45</td><td> Coffee Break</td></tr>
    		<tr><td>15:45 - 17:15</td><td> Heterogeneous Computing (Kunle Olukotun)</td></tr>
        	<tr><td>17:15 - 17:45</td><td> Coffee Break</td></tr>
@@ -111,10 +175,26 @@
 	    <tr><td>        <h2>Friday 17th</h2><td><td></td></tr>
 		<tr><td>8:45 - 9:15</td><td> Breakfast</td></tr>
    		<tr><td>9:15 - 10:45</td><td> Dynamic Compilation (Thomas Wuerthinger) </td></tr>
+   		<tr><td></td><td>         Truffle[1] is a framework to implement high-performance dynamic and domain specific languages.
+The deep embedding of DSLs for domains such as image, query and regular expression processing is highly relevant for language runtimes.
+Truffle's combined partial evaluation and compilation of dynamic languages with DSLs enables compiler optimizations beyond the possibilities of a single language compiler.
+
+In this lecture we will introduce Truffle as a tool to develop and embed high-performance DSLs.
+We will show and explain how it is used to embed DSLs into the Truffle Ruby, the Truffle runtime of JRuby [2].
+In a hands-on session we will optimize and embed a data processing DSL into Simple Language [3] using Truffle.
+Students are expected to prepare themselves with a working environment for the Truffle runtime of JRuby and SimpleLanguage.
+To get a grade, students are required to develop, alter or extend their own DSL using Truffle.
+<br>[1] http://ssw.jku.at/Research/Projects/JVM/Truffle.html
+<br>[2] https://github.com/jruby/jruby/wiki/Truffle
+<br>[3] https://github.com/graalvm/simplelanguage
+ </td></tr>        
+
    		<tr><td>10:45 - 11:15</td><td> Coffee Break</td></tr>
    		<tr><td>11:15 - 12:45</td><td> Dynamic Compilation (Thomas Wuerthinger) </td></tr>
    		<tr><td>12:45 - 13:45</td><td> Lunch</td></tr>
 		<tr><td>13:45 - 15:15</td><td> Reconfigurable Computing (Jonathan Bachrach)</td></tr>
+		<tr><td></td><td>         Speed/Power efficiencies are getting more difficult to achieve through traditional computer architectures.  Building chips is prohibitively expensive and thus Intel and others are making reconfigurable hardware (e.g, FPGAs) more accessible but FPGAs remain notoriously difficult to design for.  Chipper is a new open-source hardware construction language developed at UC Berkeley that supports advanced hardware design using highly parameterized generators and layered domain-specific hardware languages. Chipper is embedded in the Stanza programming language, which raises the level of hardware design abstraction by providing concepts including object orientation, functional programming, parameterized types, macros, and type inference. From the same source, Chipper can generate a high-speed LLVM-based cycle-accurate software simulator, or low-level Verilog designed to pass on to standard ASIC or FPGA tools for synthesis and place and route.  In this workshop, I will present an overview of reconfigurable computing, present a quick overview of Stanza and Chipper, and then you will do hands on hardware design exercises.</td></tr>
+
 		<tr><td>15:15 - 15:45</td><td> Coffee Break</td></tr>
    		<tr><td>15:45 - 17:15</td><td> Reconfigurable Computing (Jonathan Bachrach)</td></tr>
        	<tr><td>17:15 - 17:45</td><td> Coffee Break</td></tr>

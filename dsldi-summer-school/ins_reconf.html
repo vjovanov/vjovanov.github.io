@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<!--
+  Alpha by HTML5 UP
+  html5up.net | @n33co
+  Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+
+<html>
+  <head>
+    <title>Instructions for QDSL</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <!--[if lte IE 8]><script src="css/ie/html5shiv.js"></script><![endif]-->
+    <script src="js/jquery.min.js"></script>
+    <script src="js/jquery.dropotron.min.js"></script>
+    <script src="js/jquery.scrollgress.min.js"></script>
+    <script src="js/skel.min.js"></script>
+    <script src="js/skel-layers.min.js"></script>
+    <script src="js/init.js"></script>
+    <noscript>
+      <link rel="stylesheet" href="css/skel.css" />
+      <link rel="stylesheet" href="css/style.css" />
+      <link rel="stylesheet" href="css/style-wide.css" />
+    </noscript>
+    <!--[if lte IE 8]><link rel="stylesheet" href="css/ie/v8.css" /><![endif]-->
+  </head>
+  <body>
+
+    <!-- Header -->
+      <header id="header" class="skel-layers-fixed">
+        <nav id="nav">
+          <ul>
+            <li><a href="lausanne.html" class="button">About Lausanne</a></li>
+            <li><a href="program.html" class="button">Program</a></li>
+            <li><a href="gettinghere.html" class="button">Coming Here</a></li>
+            <li><a href="contact.html" class="button">Contact Us</a></li>
+            <li><a href="https://twitter.com/dsldiss" class="button icon fa-twitter">Follow @dsldiss</a></li>
+            <li><a href="index.html" class="button icon">Home</a></li>
+          </ul>
+        </nav>
+      </header>
+
+    <!-- Main -->
+      <section id="main" class="container 75%">
+        <header>
+          <h2>Exercises for "Reconfigurable Computing"</h2>
+        </header>
+        <div class="box">
+        <ul>
+         <li>
+         The exercises all have orange headers in the located in <br/>
+            &nbsp;&nbsp; ~/ucb-bar/chipper/doc/bootcamp/bootcamp.pdf
+         </li>
+         <li>
+          the exercises are in: <br/>
+          &nbsp;&nbsp; ~/ucb-bar/chipper-tutorial/problems
+         </li>
+
+
+         <li>For each exercise do:<br/>
+           &nbsp;&nbsp; > cd ~/ucb-bar/chipper-tutorial/problems<br/>
+           &nbsp;&nbsp; > make {exercise}.out<br/>
+           until it passes all the tests and produces SUCCESS at bottom.
+         </li>
+
+        <li>
+          The problems that need to pass all the tests are:<br/>
+          LFSR16, MaxN, ShiftRegisterVec, Mul, DynamicMemorySearch, andDecoupledGCD
+       </li>
+       <li> If for some reason the chipper app disappears, they can do the following to rebuild: <br/>
+
+            &nbsp;&nbsp;> cd ~/ucb-bar/chipper<br/>
+            &nbsp;&nbsp;> bin/bootstrap.sh<br/>
+
+            you can of course reimport the VirtualBox image and make sure to do the following<br/>
+
+            &nbsp;&nbsp;> cd ~/ucb-bar/chipper-tutorial<br/>
+            &nbsp;&nbsp;> git pull<br/>
+            &nbsp;&nbsp;> cd ../chipper<br/>
+            &nbsp;&nbsp;> git pull<br/>
+
+Feel free to send questions to jrb@pobox.com at completion, please email a tarball of the stanza files in the problems directory.
+        </li>
+        </div>
+      </section>
+
+    <!-- Footer -->
+      <footer id="footer">
+        <ul class="copyright">
+          <li><a href="http://epfl.ch"><img src="images/epfl_small.png" height="40"/></a></li>
+          <li>Copyright © 2002-2015 École Polytechnique Fédérale de Lausanne (EPFL)
+Lausanne, Switzerland</li>
+          <li><a href="http://eth.ch"><img src="images/eth_logo_kurz_pos.png" height="40"/></a></li>
+        </ul>
+        <script>
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+         ga('create', 'UA-62304936-1', 'auto');
+         ga('send', 'pageview');
+
+       </script>
+      </footer>
+
+  </body>
+</html>

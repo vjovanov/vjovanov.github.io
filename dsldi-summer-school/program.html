@@ -58,11 +58,11 @@
 
       <tr><td width="15%">8:45 - 9:15</td><td> <a href="http://plan.epfl.ch/?room=BC%20420">Breakfast and Reception</a></td></tr>
 
-      <tr><td width="15%">9:15 - 10:45</td><td> Introduction to DSLs &nbsp;(<a href="materials/monday/intro/intro-perf-dsl-jul15.pdf">Slides 2</a>&nbsp;<a href="materials/monday/intro/07-summer-school-intro.pdf">Slides 3</a>)</td></tr>
+      <tr><td width="15%">9:15 - 10:45</td><td> Introduction to DSLs &nbsp;(<a href="https://www.youtube.com/playlist?list=PLaR98oFkCJzsVxUWPOh9wuzkoRgrxtHav">Video</a>&nbsp;&nbsp;<a href="materials/monday/intro/intro-perf-dsl-jul15.pdf">Slides 1</a>&nbsp;&nbsp;<a href="materials/monday/intro/martin.pdf">Slides 2</a>&nbsp;&nbsp;<a href="materials/monday/intro/07-summer-school-intro.pdf">Slides 3</a>)</td></tr>
 
       <tr><td width="15%">10:45 - 11:15</td><td><a href="http://plan.epfl.ch/?room=BC%20420">Coffee Break</a></td></tr>
 
-      <tr><td>11:15 - 12:45</td><td>Quoted DSLs (Philip Wadler) &nbsp;(<a href="materials/monday/qdsl/lausanne.pdf">Slides</a>)</td></tr></td></tr>
+      <tr><td>11:15 - 12:45</td><td>Quoted DSLs (Philip Wadler) &nbsp;(<a href="https://www.youtube.com/playlist?list=PLaR98oFkCJzsVOWfAB7Fc9xDag0Bt0Tl3">Video</a> &nbsp;&nbsp;<a href="materials/monday/qdsl/lausanne.pdf">Slides</a>)</td></tr></td></tr>
       <tr><td>Abstract:</td>
       <td><p>We describe a new approach to domain specific languages (DSLs), called Quoted DSLs (QDSLs), that resurrects two old ideas: quotation, from McCarthy's Lisp of 1960, and the subformula property, from Gentzen's natural deduction of 1935.  Quoted terms allow the DSL to share the syntax and type system of the host language.  Normalising quoted terms ensures the subformula property, which guarantees that one can use higher-order types in the source while guaranteeing first-order types in the target, and enables using types to guide fusion.  We test our ideas by re-implementing Feldspar, which was originally implemented as an Embedded DSL (EDSL), as a QDSL; and we compare the QDSL and EDSL variants.</p>
 
@@ -73,7 +73,7 @@
 
    	  <tr><td>12:45 - 13:45</td><td><a href="http://plan.epfl.ch/?room=SV%201511">Lunch</a></td></tr>
 
-      <tr id="rowToClick"><td>13:45 - 15:15</td><td> Declare Your Language (Eelco Visser) (<a href="materials/monday/spoofax/DeclareYourLanguageLausanne.pdf">Slides 1</a>, <a href="materials/monday/spoofax/ScopeGraphsLausanne.pdf">Slides 2</a>)</td></tr>
+      <tr id="rowToClick"><td>13:45 - 15:15</td><td>Declare Your Language (Eelco Visser) (<a href="https://www.youtube.com/playlist?list=PLaR98oFkCJztsHoDpqsbbCxzjDlxVeowh">Video</a>&nbsp;&nbsp;<a href="materials/monday/spoofax/DeclareYourLanguageLausanne.pdf">Slides 1</a>&nbsp;&nbsp;<a href="materials/monday/spoofax/ScopeGraphsLausanne.pdf">Slides 2</a>)</td></tr>
       <tr><td>Abstract:</td><td>
       <p>Language workbenches are tools aiming to reduce the gap between the design and implementation of (external domain-specific) programming languages. Given high-level descriptions of the syntax and semantics of a language, a workbench generates an implementation of an IDE and/or execution engine. There are many different approaches to realising these goals. In this session I will demonstrate and discuss the state of declarative language definition in the Spoofax Language Workbench.</p>
 
@@ -103,7 +103,7 @@
 
       <tr><td>8:45 - 9:15</td><td><a href="http://plan.epfl.ch/?room=BC%20410">Breakfast</a></td></tr>
 
-      <tr><td>9:15 - 10:45</td><td>DSL Embedding in Scala (Tiark Rompf)(<a href="materials/tuesday/07-summer-school.pdf">Slides 2</a>)</td></tr>
+      <tr><td>9:15 - 10:45</td><td>DSL Embedding in Scala (Tiark Rompf)(<a href="https://www.youtube.com/playlist?list=PLaR98oFkCJzvjD9A1AkSsGFmDxj9PaxQM">Video</a>&nbsp;&nbsp;<a href="materials/tuesday/07-summer-school.pdf">Slides</a>)</td></tr>
        <tr><td>Abstract:</td><td><p>
        	In this session, we will look at embedded DSLs and program generation in Scala, using the <a href="http://scala-lms.github.io/">LMS (Lightweight Modular Staging)</a> platform.
         </p>
@@ -119,7 +119,7 @@
 
    		<tr><td>12:45 - 13:45</td><td><a href="http://plan.epfl.ch/?room=SV%201511">Lunch</a></td></tr>
 
-		  <tr><td>13:45 - 15:15</td><td> DSL Embedding in Racket (Matt Flatt)</td></tr>
+		  <tr><td>13:45 - 15:15</td><td> DSL Embedding in Racket (Matt Flatt)&nbsp;(<a href="https://www.youtube.com/playlist?list=PLaR98oFkCJzv7OIVTSKz8XheOJnkQk6i9">Video</a>)</td></tr>
 		  <tr><td>Abstract:</td><td><p>Racket is an extensible programming language that allows programmers to define syntactic forms, create embedded domain-specific languages (DSLs), and construct entirely new programming languages. This tutorial will provide a refresher on Lisp-style extensibility, cover Scheme-style pattern-matching and procedural macros, and delve into Racket-specific topics like redefining implicit macros, the syntax-parse library, macros that cooperate through compile-time information, non-parenthesized syntax, and integrating with the DrRacket programming environment.</p>
 
       <p>As a concrete example, we will develop an implementation of QL (http://www.languageworkbenches.net/wp-content/uploads/2013/11/Ql.pdf). Starting with a library that implements the GUI part, participants will write most of the interesting code to implement the DSL (macros, modules, etc.). We'll develop the language in stages, where each stage starts with a presentation on a language construct or strategy, then students apply the construct or strategy to create a next approximation of QL, and we sync as a group before moving on to the next stage.</p>
@@ -146,7 +146,7 @@
 
 		  <tr><td>8:45 - 9:15</td><td><a href="http://plan.epfl.ch/?room=BC%20410">Breakfast</a></td></tr>
 
-   		<tr><td>9:15 - 10:45</td><td> DSL Embedding in Haskell (Ryan Newton) (<a href="materials/wednesday/2015-07-15 - DSLs in Haskell.pdf">Slides</a>)</td></tr>
+   		<tr><td>9:15 - 10:45</td><td> DSL Embedding in Haskell (Ryan Newton) (<a href="https://www.youtube.com/playlist?list=PLaR98oFkCJzvNYU9EjlSFU2gdxLeXdh7_">Video</a>&nbsp;&nbsp;<a href="materials/wednesday/2015-07-15 - DSLs in Haskell.pdf">Slides</a>)</td></tr>
 
    		<tr><td>Abstract:</td><td>
       <p>In this session we will review the language features and libraries available in Haskell that support building DSLs.  This will cover front-end topics, such as syntax capture, type checking, and Template Haskell; middle-end topics including compiler-construction techniques in Haskell; and finally backend topics, namely, code emission strategies.  A common theme will be strong typing during each of these phases, which eliminates bugs in DSL implementations.  We will use Accelerate as a case-in point for discussion and a hands-on exercise in program transformation.</p>
@@ -187,7 +187,7 @@
 	    <tr><td colspan="2"><h2>Thursday 16th</h2></td></tr>
 
 		  <tr><td>8:45 - 9:15</td><td><a href="http://plan.epfl.ch/?room=BC%20410">Breakfast</a></td></tr>
-   		<tr><td>9:15 - 10:45</td><td> Exploiting Domain-Specific Knowledge: Spiral (Markus Püschel & Georg Ofenbeck)&nbsp;(<a href="materials/thursday/spiral-dsl-jul15.pdf">Slides</a>)</td></tr>
+   		<tr><td>9:15 - 10:45</td><td> Exploiting Domain-Specific Knowledge: Spiral (Markus Püschel & Georg Ofenbeck)&nbsp;(<a href="https://www.youtube.com/playlist?list=PLaR98oFkCJzsFHAKOmW89_tfqUCkpdCg5">Video</a>&nbsp;&nbsp;<a href="materials/thursday/spiral-dsl-jul15.pdf">Slides</a>)</td></tr>
 		  <tr><td>Abstract:   </td><td> <p>We will give a lecture on Spiral (www.spiral.net), a program generation system for highest performance transforms and one of the first approaches that used DSLs for detailed performance optimization. In the first hour, we will give an overview of Spiral including the basic principles that underly its approach.The last two hours will be “hands-on”: we will walk the participants through implementing a small subset of Spiral using LMS inside Scala. (For LMS see the Tuesday lecture by Tiark Rompf.) The focus of the hands-on session will be on understanding the benefits of a rigorous meta-programming approach for building generators like Spiral.
 		  </p>
 		  <p><b>Preparation:</b>
@@ -211,7 +211,7 @@
 
       <tr><td>12:45 - 13:45</td><td><a href="http://plan.epfl.ch/?room=SV%201511">Lunch</a></td></tr>
 
-      <tr><td>13:45 - 15:15</td><td> Heterogeneous Computing (Kunle Olukotun)</td></tr>
+      <tr><td>13:45 - 15:15</td><td> Heterogeneous Computing (Kunle Olukotun)&nbsp;(<a href="https://www.youtube.com/playlist?list=PLaR98oFkCJzvvJMunS73EP7orYRsihdyj">Video</a>)</td></tr>
       <tr><td>Abstract:    </td><td> <p>Delite (<a href="http://stanford-ppl.github.io/Delite">http://stanford-ppl.github.io/Delite</a>) is a compiler framework for building embedded compiled DSLs for high performance execution on heterogeneous devices. Delite is built on top of LMS and adds parallel patterns and parallel data structures as first class citizens. DSL authors implement domain-specific operations using Delite parallel ops, and Delite then provides optimizations and code generation for multiple hardware targets. Currently supported parallel code generators include Scala, C++, and Cuda. The ultimate goal of Delite is to enable writing single-source DSL applications that can be transparently and efficiently targeted to existing and emerging heterogeneous hardware platforms.</p>
 
       <p>In the first half of the section we will give a lecture on Delite's design, explaining the current set of features and highlighting the optimizations required to translate DSL applications to heterogeneous hardware.  In the second half we will dive into the code and walk through building a simple linear algebra DSL on top of Delite and adding domain-specific optimizations. We will also look at some of the key pieces of Delite's internals and discuss how Delite can be further extended.</p>
@@ -236,7 +236,7 @@
 
 		  <tr><td>8:45 - 9:15</td><td><a href="http://plan.epfl.ch/?room=BC%20410">Breakfast</a></td></tr>
 
-   		<tr><td>9:15 - 10:45</td><td> Dynamic Compilation (Thomas Wuerthinger) (<a href="materials/friday/TruffleSummerSchool2015.pdf">Slides</a>)</td></tr>
+   		<tr><td>9:15 - 10:45</td><td> Dynamic Compilation (Thomas Wuerthinger) (<a href="https://www.youtube.com/playlist?list=PLaR98oFkCJzvqCgldUIzORVvejboipS3B">Video</a>&nbsp;&nbsp;<a href="materials/friday/TruffleSummerSchool2015.pdf">Slides</a>)</td></tr>
 
    		<tr><td>Abstract:</td><td><p>
 <a href="http://ssw.jku.at/Research/Projects/JVM/Truffle.html">Truffle</a> is a framework to implement high-performance dynamic and domain specific languages. The deep embedding of DSLs for domains such as image, query and regular expression processing is highly relevant for language runtimes. Truffle's combined partial evaluation and compilation of dynamic languages with DSLs enables compiler optimizations beyond the possibilities of a single language compiler.</p>
@@ -252,11 +252,11 @@
 
    		<tr><td>10:45 - 11:15</td><td><a href="http://plan.epfl.ch/?room=BC%20410">Coffee Break</a></td></tr>
 
-   		<tr><td>11:15 - 12:45</td><td> Dynamic Compilation (Thomas Wuerthinger) </td></tr>
+   		<tr><td>11:15 - 12:45</td><td> Dynamic Compilation (Thomas Wuerthinger)</td></tr>
 
    		<tr><td>12:45 - 13:45</td><td><a href="http://plan.epfl.ch/?room=SV%201511">Lunch</a></td></tr>
 
-		  <tr><td>13:45 - 15:15</td><td> Reconfigurable Computing (Jonathan Bachrach)&nbsp;(<a href="materials/friday/bootcamp.pdf">Slides</a>)</td></tr>
+		  <tr><td>13:45 - 15:15</td><td> Reconfigurable Computing (Jonathan Bachrach)&nbsp;(<a href="https://www.youtube.com/playlist?list=PLaR98oFkCJzsldqy78hxomQoUKFsmRaF4">Video</a>&nbsp;&nbsp;<a href="materials/friday/bootcamp.pdf">Slides</a>)</td></tr>
 		  <tr><td>Abstract:</td><td><p>Speed/Power efficiencies are getting more difficult to achieve through traditional computer architectures.  Building chips is prohibitively expensive and thus Intel and others are making reconfigurable hardware (e.g, FPGAs) more accessible but FPGAs remain notoriously difficult to design for.  Chipper is a new open-source hardware construction language developed at UC Berkeley that supports advanced hardware design using highly parameterized generators and layered domain-specific hardware languages. Chipper is embedded in the Stanza programming language, which raises the level of hardware design abstraction by providing concepts including object orientation, functional programming, parameterized types, macros, and type inference. From the same source, Chipper can generate a high-speed LLVM-based cycle-accurate software simulator, or low-level Verilog designed to pass on to standard ASIC or FPGA tools for synthesis and place and route.  In this workshop, I will present an overview of reconfigurable computing, present a quick overview of Stanza and Chipper, and then you will do hands on hardware design exercises.</p>
 
       <p><b>Preparation:</b> We will provide a USB stick with a VirtualBox image with all software installed. Before the session you need to install the latest<a href="https://www.virtualbox.org/">VirtualBox</a> version.</p>

@@ -28,6 +28,7 @@ package java.lang.invoke;
 import jdk.internal.org.objectweb.asm.*;
 import sun.invoke.util.BytecodeDescriptor;
 import jdk.internal.misc.Unsafe;
+import sun.security.action.GetBooleanAction;
 import sun.security.action.GetPropertyAction;
 
 import java.io.FilePermission;
@@ -87,17 +88,16 @@ import static jdk.internal.org.objectweb.asm.Opcodes.*;
     // For dumping generated classes to disk, for debugging purposes
     private static final ProxyClassesDumper dumper;
 
-    // initialize lambdas eagerly for better startup performance
-    private static final boolean eagerlyInitialize;
+    // disable optimization that eagerly initializes lambdas
+    private static final boolean disableEagerInitialization;
 
     static {
         final String dumpKey = "jdk.internal.lambda.dumpProxyClasses";
         String path = GetPropertyAction.privilegedGetProperty(dumpKey);
         dumper = (null == path) ? null : ProxyClassesDumper.getInstance(path);
 
-        final String eagerlyInitializeKey = "jdk.internal.lambda.eagerlyInitialize";
-        String eagerlyInitializeSetting = GetPropertyAction.privilegedGetProperty(eagerlyInitializeKey);
-        eagerlyInitialize = !"false".equals(eagerlyInitializeSetting);
+        final String disableEagerInitializationKey = "jdk.internal.lambda.disableEagerInitialization";
+        disableEagerInitialization = GetBooleanAction.privilegedGetProperty(disableEagerInitializationKey);
     }
 
     // See context values in AbstractValidatingLambdaMetafactory
@@ -194,7 +194,7 @@ import static jdk.internal.org.objectweb.asm.Opcodes.*;
     CallSite buildCallSite() throws LambdaConversionException {
         final Class<?> innerClass = spinInnerClass();
         try {
-            if (eagerlyInitialize) {
+            if (!disableEagerInitialization) {
                 UNSAFE.ensureClassInitialized(innerClass);
             }
             MethodHandle lambdaHandle = invokedType.parameterCount() == 0

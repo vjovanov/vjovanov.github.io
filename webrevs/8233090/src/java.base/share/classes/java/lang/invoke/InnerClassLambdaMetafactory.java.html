@@ -110,76 +110,76 @@ hr { border: none 0; border-top: 1px solid #aaa; height: 1px; }
   28 import jdk.internal.org.objectweb.asm.*;
   29 import sun.invoke.util.BytecodeDescriptor;
   30 import jdk.internal.misc.Unsafe;
-  31 import sun.security.action.GetPropertyAction;
-  32 
-  33 import java.io.FilePermission;
-  34 import java.io.Serializable;
-  35 import java.security.AccessController;
-  36 import java.security.PrivilegedAction;
-  37 import java.util.LinkedHashSet;
-  38 import java.util.concurrent.atomic.AtomicInteger;
-  39 import java.util.PropertyPermission;
-  40 import java.util.Set;
-  41 
-  42 import static jdk.internal.org.objectweb.asm.Opcodes.*;
-  43 
-  44 /**
-  45  * Lambda metafactory implementation which dynamically creates an
-  46  * inner-class-like class per lambda callsite.
-  47  *
-  48  * @see LambdaMetafactory
-  49  */
-  50 /* package */ final class InnerClassLambdaMetafactory extends AbstractValidatingLambdaMetafactory {
-  51     private static final Unsafe UNSAFE = Unsafe.getUnsafe();
-  52 
-  53     private static final int CLASSFILE_VERSION = 52;
-  54     private static final String METHOD_DESCRIPTOR_VOID = Type.getMethodDescriptor(Type.VOID_TYPE);
-  55     private static final String JAVA_LANG_OBJECT = "java/lang/Object";
-  56     private static final String NAME_CTOR = "&lt;init&gt;";
-  57     private static final String NAME_FACTORY = "get$Lambda";
-  58     private static final String LAMBDA_INSTANCE_FIELD = "LAMBDA_INSTANCE$";
-  59 
-  60     //Serialization support
-  61     private static final String NAME_SERIALIZED_LAMBDA = "java/lang/invoke/SerializedLambda";
-  62     private static final String NAME_NOT_SERIALIZABLE_EXCEPTION = "java/io/NotSerializableException";
-  63     private static final String DESCR_METHOD_WRITE_REPLACE = "()Ljava/lang/Object;";
-  64     private static final String DESCR_METHOD_WRITE_OBJECT = "(Ljava/io/ObjectOutputStream;)V";
-  65     private static final String DESCR_METHOD_READ_OBJECT = "(Ljava/io/ObjectInputStream;)V";
-  66     private static final String NAME_METHOD_WRITE_REPLACE = "writeReplace";
-  67     private static final String NAME_METHOD_READ_OBJECT = "readObject";
-  68     private static final String NAME_METHOD_WRITE_OBJECT = "writeObject";
-  69 
-  70     private static final String DESCR_CLASS = "Ljava/lang/Class;";
-  71     private static final String DESCR_STRING = "Ljava/lang/String;";
-  72     private static final String DESCR_OBJECT = "Ljava/lang/Object;";
-  73     private static final String DESCR_CTOR_SERIALIZED_LAMBDA
-  74             = "(" + DESCR_CLASS + DESCR_STRING + DESCR_STRING + DESCR_STRING + "I"
-  75             + DESCR_STRING + DESCR_STRING + DESCR_STRING + DESCR_STRING + "[" + DESCR_OBJECT + ")V";
-  76 
-  77     private static final String DESCR_CTOR_NOT_SERIALIZABLE_EXCEPTION = "(Ljava/lang/String;)V";
-  78     private static final String[] SER_HOSTILE_EXCEPTIONS = new String[] {NAME_NOT_SERIALIZABLE_EXCEPTION};
-  79 
-  80     private static final String DESCR_HIDDEN = "Ljdk/internal/vm/annotation/Hidden;";
-  81 
-  82     private static final String[] EMPTY_STRING_ARRAY = new String[0];
-  83 
-  84     // Used to ensure that each spun class name is unique
-  85     private static final AtomicInteger counter = new AtomicInteger(0);
-  86 
-  87     // For dumping generated classes to disk, for debugging purposes
-  88     private static final ProxyClassesDumper dumper;
-  89 
-  90     // initialize lambdas eagerly for better startup performance
-  91     private static final boolean eagerlyInitialize;
-  92 
-  93     static {
-  94         final String dumpKey = "jdk.internal.lambda.dumpProxyClasses";
-  95         String path = GetPropertyAction.privilegedGetProperty(dumpKey);
-  96         dumper = (null == path) ? null : ProxyClassesDumper.getInstance(path);
-  97 
-  98         final String eagerlyInitializeKey = "jdk.internal.lambda.eagerlyInitialize";
-  99         String eagerlyInitializeSetting = GetPropertyAction.privilegedGetProperty(eagerlyInitializeKey);
- 100         eagerlyInitialize = !"false".equals(eagerlyInitializeSetting);
+  31 import sun.security.action.GetBooleanAction;
+  32 import sun.security.action.GetPropertyAction;
+  33 
+  34 import java.io.FilePermission;
+  35 import java.io.Serializable;
+  36 import java.security.AccessController;
+  37 import java.security.PrivilegedAction;
+  38 import java.util.LinkedHashSet;
+  39 import java.util.concurrent.atomic.AtomicInteger;
+  40 import java.util.PropertyPermission;
+  41 import java.util.Set;
+  42 
+  43 import static jdk.internal.org.objectweb.asm.Opcodes.*;
+  44 
+  45 /**
+  46  * Lambda metafactory implementation which dynamically creates an
+  47  * inner-class-like class per lambda callsite.
+  48  *
+  49  * @see LambdaMetafactory
+  50  */
+  51 /* package */ final class InnerClassLambdaMetafactory extends AbstractValidatingLambdaMetafactory {
+  52     private static final Unsafe UNSAFE = Unsafe.getUnsafe();
+  53 
+  54     private static final int CLASSFILE_VERSION = 52;
+  55     private static final String METHOD_DESCRIPTOR_VOID = Type.getMethodDescriptor(Type.VOID_TYPE);
+  56     private static final String JAVA_LANG_OBJECT = "java/lang/Object";
+  57     private static final String NAME_CTOR = "&lt;init&gt;";
+  58     private static final String NAME_FACTORY = "get$Lambda";
+  59     private static final String LAMBDA_INSTANCE_FIELD = "LAMBDA_INSTANCE$";
+  60 
+  61     //Serialization support
+  62     private static final String NAME_SERIALIZED_LAMBDA = "java/lang/invoke/SerializedLambda";
+  63     private static final String NAME_NOT_SERIALIZABLE_EXCEPTION = "java/io/NotSerializableException";
+  64     private static final String DESCR_METHOD_WRITE_REPLACE = "()Ljava/lang/Object;";
+  65     private static final String DESCR_METHOD_WRITE_OBJECT = "(Ljava/io/ObjectOutputStream;)V";
+  66     private static final String DESCR_METHOD_READ_OBJECT = "(Ljava/io/ObjectInputStream;)V";
+  67     private static final String NAME_METHOD_WRITE_REPLACE = "writeReplace";
+  68     private static final String NAME_METHOD_READ_OBJECT = "readObject";
+  69     private static final String NAME_METHOD_WRITE_OBJECT = "writeObject";
+  70 
+  71     private static final String DESCR_CLASS = "Ljava/lang/Class;";
+  72     private static final String DESCR_STRING = "Ljava/lang/String;";
+  73     private static final String DESCR_OBJECT = "Ljava/lang/Object;";
+  74     private static final String DESCR_CTOR_SERIALIZED_LAMBDA
+  75             = "(" + DESCR_CLASS + DESCR_STRING + DESCR_STRING + DESCR_STRING + "I"
+  76             + DESCR_STRING + DESCR_STRING + DESCR_STRING + DESCR_STRING + "[" + DESCR_OBJECT + ")V";
+  77 
+  78     private static final String DESCR_CTOR_NOT_SERIALIZABLE_EXCEPTION = "(Ljava/lang/String;)V";
+  79     private static final String[] SER_HOSTILE_EXCEPTIONS = new String[] {NAME_NOT_SERIALIZABLE_EXCEPTION};
+  80 
+  81     private static final String DESCR_HIDDEN = "Ljdk/internal/vm/annotation/Hidden;";
+  82 
+  83     private static final String[] EMPTY_STRING_ARRAY = new String[0];
+  84 
+  85     // Used to ensure that each spun class name is unique
+  86     private static final AtomicInteger counter = new AtomicInteger(0);
+  87 
+  88     // For dumping generated classes to disk, for debugging purposes
+  89     private static final ProxyClassesDumper dumper;
+  90 
+  91     // disable optimization that eagerly initializes lambdas
+  92     private static final boolean disableEagerInitialization;
+  93 
+  94     static {
+  95         final String dumpKey = "jdk.internal.lambda.dumpProxyClasses";
+  96         String path = GetPropertyAction.privilegedGetProperty(dumpKey);
+  97         dumper = (null == path) ? null : ProxyClassesDumper.getInstance(path);
+  98 
+  99         final String disableEagerInitializationKey = "jdk.internal.lambda.disableEagerInitialization";
+ 100         disableEagerInitialization = GetBooleanAction.privilegedGetProperty(disableEagerInitializationKey);
  101     }
  102 
  103     // See context values in AbstractValidatingLambdaMetafactory
@@ -276,7 +276,7 @@ hr { border: none 0; border-top: 1px solid #aaa; height: 1px; }
  194     CallSite buildCallSite() throws LambdaConversionException {
  195         final Class&lt;?&gt; innerClass = spinInnerClass();
  196         try {
- 197             if (eagerlyInitialize) {
+ 197             if (!disableEagerInitialization) {
  198                 UNSAFE.ensureClassInitialized(innerClass);
  199             }
  200             MethodHandle lambdaHandle = invokedType.parameterCount() == 0
